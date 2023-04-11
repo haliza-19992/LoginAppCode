@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="index.css">
+<title> Login Screen </title>
+<script type="text/javascript">
+    function ValidateEmail(userid)
+    {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(userid.value.match(mailformat))
+        {
+            document.getElementById('password').focus();
+            return true;
+        }
+        else
+        {
+            alert("You have entered an invalid email address!");
+            document.getElementById('userid').focus();
+            return false;
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGIN</h3>
+            <p>Please enter your credentials to login.</p>
+          </div>
+        </div>
+        <form class="login-form" action="loginServlet" method="post" onclick="ValidateEmail(document.getElementById('userid'))">
+          <input type="text" placeholder="userid" id="userid"/>
+          <input type="password" placeholder="password" id="password"/>
+          <button type="submit">login</button>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
